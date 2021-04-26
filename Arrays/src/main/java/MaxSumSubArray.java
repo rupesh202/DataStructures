@@ -12,7 +12,7 @@ public class MaxSumSubArray {
         int maxEnding = input[0];
         for (int i=0; i< input.length; i++){
 
-            maxEnding = Math.max(maxEnding, maxEnding+input[i]);
+            maxEnding = Math.max(maxEnding+input[i], input[i]);
             result = Math.max(result,maxEnding);
         }
 
