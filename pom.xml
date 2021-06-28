@@ -13,6 +13,7 @@
         <module>Linkedlist</module>
         <module>Stacks</module>
         <module>Queues</module>
+        <module>Trees</module>
     </modules>
 
 
