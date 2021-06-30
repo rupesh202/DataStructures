@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTreeImpl{
 
@@ -243,6 +244,93 @@ public class BinaryTreeImpl{
         mirrorImageImpl(root.left);
         mirrorImageImpl(root.right);
     }
+    public Node findLCA(int node1, int node2){
+        return findLCAImpl(root,node1,node2);
+    }
+    public Node findLCAImpl(Node root, int node1, int node2){
+
+        if (root == null){
+            return null;
+        }
+
+        if (root.data == node1 || root.data == node2){
+            return root;
+        }
+        Node left =findLCAImpl(root.left,node1,node2);
+        Node right = findLCAImpl(root.right,node1,node2);
+
+        if (left != null && right !=null){
+            return root;
+        }else {
+            if (left != null) {
+                return left;
+            } else {
+                return right;
+            }
+        }
+    }
+    public void printAllAncestors(int key){
+        printAllAncestorsImpl(root,key);
+    }
+    public boolean printAllAncestorsImpl(Node root, int key){
+
+        if (root == null){
+            return false;
+        }
+
+        if (root.data == key){
+            return true;
+        }
+        Boolean left = printAllAncestorsImpl(root.left,key);
+        Boolean right = printAllAncestorsImpl(root.right,key);
+
+        if (left || right){
+            System.out.println(root.data);
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public void printZigZag(){
+
+        if (root == null){
+            return;
+        }
+        Stack<Node> currLevel = new Stack<>();
+        Stack<Node> nextLevel = new Stack<>();
+
+        currLevel.push(root);
+        boolean leftToRight = true;
+
+        while (!currLevel.isEmpty()){
+
+            Node currNode = currLevel.pop();
+            System.out.println(currNode.data);
+
+            if (leftToRight){
+                if (currNode.left != null){
+                    nextLevel.push(currNode.left);
+                }
+                if (currNode.right != null){
+                    nextLevel.push(currNode.right);
+                }
+            }else {
+                if (currNode.right != null){
+                    nextLevel.push(currNode.right);
+                }
+                if (currNode.left != null){
+                    nextLevel.push(currNode.left);
+                }
+            }
+            if (currLevel.isEmpty()) {
+                leftToRight = !leftToRight;
+                Stack<Node> temp = currLevel;
+                currLevel = nextLevel;
+                nextLevel = temp;
+            }
+        }
+
+    }
 
     public static void main(String[] args) {
         BinaryTreeImpl binaryTree = new BinaryTreeImpl();
@@ -282,8 +370,11 @@ public class BinaryTreeImpl{
         // check this
         int fullNodes = binaryTree.fullNodes();
 //        System.out.println(fullNodes);
-
-        binaryTree.mirrorImage();
+//        binaryTree.mirrorImage();
+        Node lca = binaryTree.findLCA(45,55);
+//        System.out.println(lca.data);
+//        binaryTree.printAllAncestors(70);
+        binaryTree.printZigZag();
 
 
     }
