@@ -9,6 +9,7 @@
         <module name="Trees" />
         <module name="Stacks" />
         <module name="Queues" />
+        <module name="Graph" />
         <module name="Arrays" />
         <module name="Linkedlist" />
       </profile>

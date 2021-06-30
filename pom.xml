@@ -14,6 +14,7 @@
         <module>Stacks</module>
         <module>Queues</module>
         <module>Trees</module>
+        <module>Graph</module>
     </modules>
 
 
