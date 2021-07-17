@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Trees" />
+        <module name="Graph" />
+        <module name="Searching" />
         <module name="Stacks" />
         <module name="Queues" />
-        <module name="Graph" />
         <module name="Arrays" />
         <module name="Linkedlist" />
+        <module name="Sorting" />
       </profile>
     </annotationProcessing>
   </component>
