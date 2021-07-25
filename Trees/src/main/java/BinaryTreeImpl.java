@@ -40,8 +40,8 @@ public class BinaryTreeImpl{
     public void inOrderTraversalImpl(Node root){
 
         if (root != null){
-            System.out.println(root.data);
             inOrderTraversalImpl(root.left);
+            System.out.println(root.data);
             inOrderTraversalImpl(root.right);
         }
 
@@ -52,8 +52,8 @@ public class BinaryTreeImpl{
     public void preOrderImpl(Node root){
 
         if (root != null){
-            preOrderImpl(root.left);
             System.out.println(root.data);
+            preOrderImpl(root.left);
             preOrderImpl(root.right);
         }
     }
@@ -204,6 +204,7 @@ public class BinaryTreeImpl{
         if (root == null){
             return 0;
         }
+
         int left = fullNodesImpl(root.left);
         int right = fullNodesImpl(root.right);
 
@@ -332,6 +333,46 @@ public class BinaryTreeImpl{
 
     }
 
+    public Boolean isBST(){
+        return isBSTImpl(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+    public Boolean isBSTImpl(Node root, int min, int max){
+
+        if (root == null){
+            return true;
+        }
+        if (root.data < min || root.data > max){
+            return false;
+        }
+
+        Boolean left = isBSTImpl(root.left, min,root.data);
+        Boolean right = isBSTImpl(root.right,root.data, max);
+
+        if (left && right){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public int sumBetweenTwoNodes(int n1, int n2){
+        return sumBetweenTwoNodesImpl(root,n1,n2);
+
+    }
+    public int sumBetweenTwoNodesImpl(Node root,int n1, int n2){
+
+        if (root == null){
+            return 0;
+        }
+
+        if (root.data == n1 || root.data == n2){
+            return root.data;
+        }
+        int left = sumBetweenTwoNodesImpl(root.left,n1,n2);
+        int right =sumBetweenTwoNodesImpl(root.right,n1,n2);
+
+        return left+right;
+
+    }
     public static void main(String[] args) {
         BinaryTreeImpl binaryTree = new BinaryTreeImpl();
         /*
@@ -366,15 +407,17 @@ public class BinaryTreeImpl{
         int heightNonRec = binaryTree.heightOfTreeWithOutRec();
 //        System.out.println(heightNonRec);
         int count = binaryTree.noOfLeaves();
-//        System.out.println(count);
+//        System.out.println("no of leaves" + count);
         // check this
         int fullNodes = binaryTree.fullNodes();
-//        System.out.println(fullNodes);
+//        System.out.println(" fullnodes" + fullNodes);
 //        binaryTree.mirrorImage();
         Node lca = binaryTree.findLCA(45,55);
 //        System.out.println(lca.data);
 //        binaryTree.printAllAncestors(70);
-        binaryTree.printZigZag();
+//        binaryTree.printZigZag();
+        System.out.println(binaryTree.isBST());
+
 
 
     }

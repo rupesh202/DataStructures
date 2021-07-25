@@ -1,7 +1,7 @@
 public class MaxDifference {
     public static void main(String[] args) {
         MaxDifference maxDifference = new MaxDifference();
-        int[] input = new int[]{2,3,10,6,4,8,1};
+        int[] input = new int[]{7,2,5,6,3,9};
         int result = maxDifference.maxDifferenceInArray(input);
         System.out.println(result);
     }
