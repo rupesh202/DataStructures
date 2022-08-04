@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Trees" />
         <module name="Graph" />
+        <module name="DSA450" />
         <module name="Searching" />
         <module name="Stacks" />
         <module name="Queues" />

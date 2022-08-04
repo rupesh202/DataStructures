@@ -17,6 +17,7 @@
         <module>Graph</module>
         <module>Searching</module>
         <module>Sorting</module>
+        <module>DSA450</module>
     </modules>
 
 
