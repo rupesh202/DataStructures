@@ -5,6 +5,7 @@ public class MaxSumContiguousSubArrayKadanes {
         MaxSumContiguousSubArrayKadanes obj = new MaxSumContiguousSubArrayKadanes();
         int[] input = {-2, -3, 4, -1, -2, 1, 5, -3};
         obj.kadane(input);
+        obj.maxSumContigousArray(input);
     }
     public void kadane(int[] arr){
 
@@ -22,5 +23,22 @@ public class MaxSumContiguousSubArrayKadanes {
             }
         }
         System.out.println("max sum is:" + max);
+    }
+    public void maxSumContigousArray(int [] input){
+
+        int max = Integer.MIN_VALUE;
+        int currSum =0;
+
+        for (int i=0; i< input.length; i++){
+
+            currSum = currSum + input[i];
+            if (currSum > max){
+                max = currSum;
+            }
+            if (currSum < 0){
+                currSum =0;
+            }
+        }
+        System.out.println(max);
     }
 }

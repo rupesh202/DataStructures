@@ -10,10 +10,5 @@ public class MergeTwoSortedArray {
     public void merge(int[] arr1, int[] arr2){
 
 
-        int[] a = {1,2};
- // {2,1}
-        a[0] = a[0] + a[1];// {3,2}
-        a[1] = a[0] - a[1]; // {3,1}
-        a[0] = a[0] - a[1]; // {2,1}
     }
 }

@@ -12,18 +12,21 @@ public class UnionAndIntersectionOfTwoSortedArray {
     }
     public void intersection(int[] arr1, int[] arr2){
 
-        int k=0;
-        for(int i=0; i< arr1.length; i++){
+        int i=0; int j =0;
+        int m = arr1.length ; int n = arr2.length;
 
-            for(int j= k; j<arr2.length; j++){
+        while (i<m && j<n){
 
-                if (arr1[i] == arr2[j]){
-                    System.out.println(arr1[i]);
-                    k= i;
-                    break;
-                }
+            if (arr1[i] < arr2[j]){
+                i++;
+            }else if (arr1[i] > arr2[j]){
+                j++;
+            }else {
+                System.out.println(arr1[i]);
+                i++;
             }
         }
+
     }
     public void union(int[] arr1, int[] arr2){
 
