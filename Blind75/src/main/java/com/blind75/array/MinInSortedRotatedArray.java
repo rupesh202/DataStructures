@@ -12,6 +12,8 @@ Given the sorted rotated array nums of unique elements, return the minimum eleme
 You must write an algorithm that runs in O(log n) time.
 
 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+sol:
+https://www.youtube.com/watch?v=nIVW4P8b1VA
 
 
  */
