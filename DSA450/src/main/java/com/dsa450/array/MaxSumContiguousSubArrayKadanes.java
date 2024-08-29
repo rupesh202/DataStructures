@@ -14,13 +14,14 @@ public class MaxSumContiguousSubArrayKadanes {
 
         for(int i=0; i<arr.length;i++){
 
+           if (curr_sum < 0){
+                curr_sum =0;
+            }
             curr_sum = curr_sum + arr[i];
             if (curr_sum > max){
                 max = curr_sum;
             }
-            if (curr_sum < 0){
-                curr_sum =0;
-            }
+
         }
         System.out.println("max sum is:" + max);
     }
@@ -31,13 +32,14 @@ public class MaxSumContiguousSubArrayKadanes {
 
         for (int i=0; i< input.length; i++){
 
+           if (curr_sum < 0){
+                curr_sum =0;
+            }
             currSum = currSum + input[i];
             if (currSum > max){
                 max = currSum;
             }
-            if (currSum < 0){
-                currSum =0;
-            }
+
         }
         System.out.println(max);
     }
